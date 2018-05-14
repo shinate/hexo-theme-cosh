@@ -1,0 +1,17 @@
+<% if(is_tag()) { %>
+<h1 class="page-title"><%= __('Tags') + ': ' + page.tag %></h1>
+<% page.posts.each(function(post){ %>
+<%- partial('archive', {post: post}) %>
+<% }) %>
+<% } else { %>
+<h1 class="page-title"><%= __('Tags') %></h1>
+<% site.tags.each(function(tag){ %>
+<% if(tag.length){ %>
+<h3 class="archive-separator" id="tag-<%= tag.name %>"><%= tag.name %></h3>
+<% tag.posts.each(function(post){ %>
+<%- partial('archive', {post: post}) %>
+<% }) %>
+<% } %>
+<% }) %>
+<% } %>
+<%- partial('paginator') %>

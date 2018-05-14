@@ -1,0 +1,6 @@
+<blockquote class="post-copyright">
+    <%- partial('updated') %> by <a href="<%- config.url %>"><%- config.author %></a>
+    <% if(theme.postMessage) { %>
+    <%- _.template(theme.postMessage)(locals) %>
+    <% } %>
+</blockquote>

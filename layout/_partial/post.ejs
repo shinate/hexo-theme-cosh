@@ -1,0 +1,16 @@
+<h1 class="post-title"><%- post.title %></h1>
+<div class="post-meta">
+    <%- partial('post/category') %>
+    <%- partial('post/tag') %>
+</div>
+<%- partial('post/toc', {post: post}) %>
+<article id="<%= post.layout %>-<%= post.slug %>"
+         class="post-article article-type-<%= post.layout %>">
+    <div class="post-content" id="post-content">
+        <%- post.content %>
+    </div>
+    <%- partial('post/copyright') %>
+    <%- partial('post/nav') %>
+    <%- partial('post/comment') %>
+    <%- partial('plugins/page-visit') %>
+</article>

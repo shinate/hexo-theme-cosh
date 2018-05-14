@@ -1,0 +1,29 @@
+#cli {
+  .prompt {
+    word-break: keep-all;
+    white-space: nowrap;
+  }
+  .inputing {
+    word-break: break-all;
+    word-wrap: break-word;
+    outline: none;
+  }
+}
+
+.command {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+    overflow: hidden;
+  }
+
+  .command-row-message {
+    &.command-row-message-error {
+      padding: .5em .3em;
+      display: inline-block;
+      margin-bottom: .5em;
+      margin-top: .5em;
+    }
+  }
+}

@@ -1,0 +1,90 @@
+@import "../../../config/profile/basic";
+
+::-webkit-scrollbar {
+  &-thumb {
+    background-color: @profile-color-7-normal;
+    &:hover {
+      background-color: darken(@profile-color-7-normal, 10%)
+    }
+    &:active {
+      background-color: darken(@profile-color-7-normal, 20%)
+    }
+  }
+}
+
+::selection {
+  background: @profile-color-selection;
+}
+
+body {
+  font-size: @profile-font-size;
+}
+
+a, .link {
+  background: none;
+  color: @profile-color-6-normal;
+
+  &:hover, &:focus, &.current {
+    color: @profile-color-background;
+    background: @profile-color-6-normal;
+  }
+
+  &.current {
+    &:hover, &:focus {
+      color: @profile-color-5-normal;
+    }
+  }
+}
+
+.article-item {
+  border-color: @profile-color-7-normal;
+}
+
+.article-date-time {
+  color: @profile-color-3-normal;
+}
+
+.article-title-link {
+  background: none;
+  color: @profile-color-5-normal;
+
+  &:hover, &:focus {
+    color: @profile-color-background;
+    background: @profile-color-5-normal;
+  }
+}
+
+.post-content {
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+    color: @profile-color-5-normal;
+  }
+}
+
+.post-copyright, footer {
+  color: @profile-color-7-normal;
+}
+
+.article-category-link,
+.article-tag-link,
+.post-category-link,
+.post-tag-link,
+.post-toc-link,
+.post-nav-link,
+.page-number,
+.article-more {
+  .link;
+}
+
+.command-row-message {
+  &.command-row-message-error {
+    color: @profile-color-background;
+    background-color: @profile-color-5-normal;
+  }
+}
+
+.pageinator {
+  .extend {
+    .page-number;
+  }
+}

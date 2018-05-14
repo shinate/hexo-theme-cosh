@@ -1,0 +1,10 @@
+<% if (post.tags && post.tags.length){ %>
+<div class="post-tag-list flex-column">
+    <%- list_tags(post.tags, {
+        show_count: false,
+        class: 'post-tag',
+        style: 'none',
+        separator: ''
+    }) %>
+</div>
+<% } %>

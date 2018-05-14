@@ -1,0 +1,17 @@
+/**
+ * Created by shinate on 2018/5/10.
+ */
+var command = require('./command');
+
+command.register('clean', require('./cmd/clean'));
+command.register('home', require('./cmd/home'));
+command.register('page', require('./cmd/page'));
+command.register('history', require('./cmd/history'));
+command.register('font-size', require('./cmd/font-size'));
+command.register('tag', require('./cmd/tag'));
+command.register('category', require('./cmd/category'));
+command.register('theme', require('./cmd/theme'));
+
+console.log(command);
+
+module.exports = command;

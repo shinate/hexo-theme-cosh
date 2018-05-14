@@ -1,0 +1,52 @@
+'use strict';
+
+var named = require('vinyl-named');
+var ws = require('webpack-stream');
+var path = require('path');
+var colors = require('colors');
+var util = require('util');
+
+module.exports = function (gulp, PLUGIN, CONF) {
+
+    gulp.task('watch', ['build', 'js:watch', 'css:watch']);
+
+    gulp.task('js:watch', ['build'], PLUGIN.intelliWatch([
+        CONF.src + '/js/bundle/**/*.js',
+        '!' + CONF.src + '/js/bundle/**/*.min.js'
+    ], function (src) {
+        return gulp.src(src)
+            .pipe(PLUGIN.plumber())
+            .pipe(named(function (file) {
+                var p = path.relative(file.base, file.path);
+                var prefix = path.relative(CONF.src + '/js/bundle', file.base);
+                return (prefix ? prefix + '/' : '') + p.slice(0, -path.extname(p).length);
+            }))
+            .pipe(ws(CONF.webpack))
+            .pipe(gulp.dest(CONF.build + '/js'));
+    }));
+
+    gulp.task('css:watch', ['build'], PLUGIN.intelliWatch([
+        CONF.src + '/css/bundle/**/*.less'
+    ], function (src) {
+        return gulp.src(src)
+            .pipe(PLUGIN.plumber())
+            .pipe(PLUGIN.sourcemaps.init())
+            .pipe(PLUGIN.less())
+            .pipe(named(function (file) {
+                file.base = CONF.src + '/css/bundle/';
+                var filepath = path.relative(file.base, file.path);
+                console.log('[' + colors.grey((new Date).toTimeString()) + ']', 'LESS Bundle');
+                console.log([
+                    (new Array(filepath.length - 4)).join(' ') + colors.bold('Asset'),
+                    colors.bold('Size')
+                ].join(' '));
+                console.log([
+                    colors.blue.bold(filepath),
+                    (parseInt(file.stat.size / 10) / 100) + ' kB'
+                ].join(' '));
+                this.queue(file);
+            }))
+            .pipe(PLUGIN.sourcemaps.write('./'))
+            .pipe(gulp.dest(CONF.build + '/css'));
+    }));
+};

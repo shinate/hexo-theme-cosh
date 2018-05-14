@@ -1,0 +1,106 @@
+@import "../../../config/profile/pro";
+
+::-webkit-scrollbar {
+  &-thumb {
+    background-color: @profile-color-0-bright;
+    border-color: @profile-color-0-bright;
+    &:hover {
+      background-color: lighten(@profile-color-0-bright, 10%);
+    }
+    &:active {
+      background-color: lighten(@profile-color-0-bright, 10%);
+    }
+  }
+}
+
+::selection {
+  background: @profile-color-selection;
+}
+
+body {
+  font-size: @profile-font-size;
+  background-color: @profile-color-background;
+  color: @profile-color-text;
+}
+
+a, .link {
+  background: none;
+  color: @profile-color-6-normal;
+
+  &:hover, &:focus, &.current {
+    color: @profile-color-background;
+    background: @profile-color-6-normal;
+  }
+
+  &.current {
+    &:hover, &:focus {
+      color: @profile-color-text-bold;
+    }
+  }
+}
+
+.article-item {
+  border-color: @profile-color-0-bright;
+}
+
+.article-date-time {
+  color: @profile-color-3-normal;
+}
+
+.article-title-link {
+  background: none;
+  color: @profile-color-5-bright;
+
+  &:hover, &:focus {
+    color: @profile-color-background;
+    background: @profile-color-5-bright;
+  }
+}
+
+.page-title,
+.post-title {
+  background-color: @profile-color-6-bright;
+  color: @profile-color-0-normal;
+}
+
+.post-content {
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+    color: @profile-color-5-bright;
+  }
+
+  p {
+    strong {
+      color: @profile-color-3-normal;
+    }
+  }
+}
+
+.post-copyright, footer {
+  color: @profile-color-text;
+}
+
+.post-copyright {
+  time {
+    color: @profile-color-3-bright;
+  }
+}
+
+.article-category-link,
+.article-tag-link,
+.post-category-link,
+.post-tag-link,
+.post-toc-link,
+.post-nav-link,
+.page-number,
+.pageinator .extend,
+.article-more {
+  .link;
+}
+
+.command-row-message {
+  &.command-row-message-error {
+    color: @profile-color-text-bold;
+    background-color: @profile-color-1-bright;
+  }
+}

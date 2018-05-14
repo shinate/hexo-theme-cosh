@@ -1,0 +1,10 @@
+<h1 class="page-title"><%= config.title %></h1>
+<div class="article-list">
+    <% page.posts.each(function(post){ %>
+    <%- partial('_partial/article', {
+        post: post,
+        index: false
+    }) %>
+    <% }) %>
+</div>
+<%- partial('_partial/paginator') %>

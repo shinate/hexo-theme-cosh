@@ -1,0 +1,43 @@
+@import "post/toc";
+@import "post/category";
+@import "post/tag";
+
+.post-title {
+  border: 3px double;
+  padding: .5em;
+}
+
+.post-nav {
+
+  .prev {
+    text-align: left;
+  }
+  .next {
+    text-align: right;
+  }
+
+  .post-nav-link {
+    display: inline-block;
+  }
+}
+
+.post-content {
+  h1, h2, h3, h4, h5, h6, p, pre {
+    margin: 1em 0;
+  }
+
+  p {
+    letter-spacing: 1px;
+  }
+}
+
+.post-copyright {
+  margin-bottom: 1em;
+  footer {
+    a > img {
+      width: 48px;
+      height: 48px;
+      .border-radius(24px);
+    }
+  }
+}

@@ -1,0 +1,82 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2018-05-10 23:57+0800\n"
+"PO-Revision-Date: 2018-05-11 02:32+0800\n"
+"Last-Translator: shiante <shine.wangrs@gmail.com>\n"
+"Language-Team: \n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.3\n"
+"X-Poedit-Basepath: ../layout\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: _partial/article.ejs:19
+msgid "Read more"
+msgstr "阅读全文"
+
+#: _partial/common/head.ejs:18
+msgid "Categories"
+msgstr "分类"
+
+#: _partial/common/head.ejs:20 tag.ejs:2
+msgid "Tags"
+msgstr "标签"
+
+#: _partial/footer.ejs:10
+msgid "Creative Commons License"
+msgstr "知识共享许可协议"
+
+#: _partial/footer.ejs:11
+msgid "This work is licensed under a "
+msgstr "本作品许可采用自 "
+
+#: _partial/footer.ejs:13
+msgid ""
+"Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International "
+"License"
+msgstr "知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议"
+
+#: _partial/paginator.ejs:4
+msgid "Prev page"
+msgstr "上一页"
+
+#: _partial/paginator.ejs:5
+msgid "Next page"
+msgstr "下一页"
+
+#: _partial/post/nav.ejs:6
+msgid "Prev post"
+msgstr "上一篇"
+
+#: _partial/post/nav.ejs:14
+msgid "Next post"
+msgstr "下一篇"
+
+#: _partial/post/toc.ejs:10
+msgid "toc"
+msgstr "目录"
+
+#: _partial/post/updated.ejs:3
+msgid "Last updated at"
+msgstr "最后更新于"
+
+#~ msgid "tags"
+#~ msgstr "标签"
+
+#~ msgid ""
+#~ "This blog is licensed under a <a rel=\"license\" href=\"https://"
+#~ "creativecommons.org/licenses/by/4.0/\">Creative Commons Attribution 4.0 "
+#~ "International License</a>."
+#~ msgstr ""
+#~ "博客内容遵循 <a rel=\"license\" href=\"https://creativecommons.org/"
+#~ "licenses/by-nc-sa/4.0/deed.zh\">知识共享 署名 - 非商业性 - 相同方式共享 "
+#~ "4.0 国际协议</a>"
+
+#~ msgid "TOC"
+#~ msgstr "目录"

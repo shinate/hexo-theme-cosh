@@ -1,0 +1,14 @@
+<%
+post.title = post.title || 'No title';
+%>
+<h3 class="article-title">
+    <% if (post.link){ %>
+    <a class="article-title-link" href="<%- url_for(post.link) %>" target="_blank" itemprop="url"><%= post.title %></a>
+    <% } else if (post.title){ %>
+    <% if (hasLink){ %>
+    <a class="article-title-link" href="<%- url_for(post.path) %>"><%= post.title %></a>
+    <% } else { %>
+    <%= post.title %>
+    <% } %>
+    <% } %>
+</h3>
