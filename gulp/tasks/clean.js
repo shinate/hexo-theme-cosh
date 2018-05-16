@@ -8,7 +8,6 @@ module.exports = function (gulp, PLUGIN, CONF) {
         if (CONF.env === 'production') {
             return gulp.src([
                 CONF.build + '/*',
-                '!' + CONF.build + '/.gitignore',
                 CONF.release + '/*'
             ], {
                 read: false
@@ -16,8 +15,7 @@ module.exports = function (gulp, PLUGIN, CONF) {
                 .pipe(clean());
         } else {
             return gulp.src([
-                CONF.build + '/*',
-                '!' + CONF.build + '/.gitignore'
+                CONF.build + '/*'
             ], {
                 read: false
             })
