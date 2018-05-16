@@ -7,11 +7,17 @@ var path = require('path');
 module.exports = function (gulp, PLUGIN, CONF) {
 
     gulp.task('js-asset', ['js-bundle'], function () {
-        return gulp.src([
+        var _T = gulp.src([
             CONF.src + '/js/*.min.js'
         ])
             .pipe(PLUGIN.plumber())
             .pipe(gulp.dest(CONF.build + '/js'))
+
+        if (CONF.env === 'production') {
+            _T.pipe(gulp.dest(CONF.release + '/js'))
+        }
+
+        return _T;
     });
 
     gulp.task('js-bundle', function () {
@@ -35,6 +41,10 @@ module.exports = function (gulp, PLUGIN, CONF) {
         }
 
         _T = _T.pipe(gulp.dest(CONF.build + '/js'));
+
+        if (CONF.env === 'production') {
+            _T.pipe(gulp.dest(CONF.release + '/js'))
+        }
 
         return _T;
     });

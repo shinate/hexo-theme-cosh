@@ -3,16 +3,21 @@
 module.exports = function (gulp, PLUGIN, CONF) {
 
     gulp.task('css-asset', function () {
-        return gulp.src([
+
+        var _T = gulp.src([
             CONF.src + '/css/**/*.min.css'
         ])
             .pipe(PLUGIN.plumber())
-            // .pipe(PLUGIN.sourcemaps.init())
-            // .pipe(PLUGIN.sourcemaps.write('./'))
             .pipe(gulp.dest(CONF.build + '/css'));
+
+        if (CONF.env === 'production') {
+            _T.pipe(gulp.dest(CONF.release + '/css'))
+        }
+
+        return _T;
     });
 
-    gulp.task('css-bundle', function () {
+    gulp.task('css-minify', function () {
         var _T = gulp.src([
             CONF.src + '/css/**/*.css'
         ])
@@ -27,12 +32,16 @@ module.exports = function (gulp, PLUGIN, CONF) {
             }))
         }
 
+        if (CONF.env === 'production') {
+            _T.pipe(gulp.dest(CONF.release + '/css'))
+        }
+
         _T = _T.pipe(gulp.dest(CONF.build + '/css'));
 
         return _T;
     });
 
-    gulp.task('css', ['css-asset', 'css-bundle'], function () {
+    gulp.task('css', ['css-asset', 'css-minify'], function () {
         var _T = gulp.src([
             CONF.src + '/css/bundle/**/*.less'
         ])
@@ -53,6 +62,10 @@ module.exports = function (gulp, PLUGIN, CONF) {
         }
 
         _T = _T.pipe(gulp.dest(CONF.build + '/css'));
+
+        if (CONF.env === 'production') {
+            _T.pipe(gulp.dest(CONF.release + '/css'))
+        }
 
         return _T;
     });

@@ -15,6 +15,8 @@ if (yargs.hasOwnProperty('env')) {
 C.root = '.';
 C.src = C.root + '/src';
 C.dev_build_root = C.root + '/.dev';
+C.build = C.dev_build_root + '/source';
+C.release = C.root + '/source';
 
 C.webpack = {
     module: {
@@ -38,12 +40,10 @@ C.webpack = {
 };
 
 if (C.env === 'production') {
-    C.build = C.root + '/source';
     C.webpack.plugins.push(new UglifyJsPlugin({
-        sourceMap: true
+        sourceMap: false
     }));
 } else {
-    C.build = C.dev_build_root + '/source';
     C.webpack.devtool = 'source-map';
 }
 
