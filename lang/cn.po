@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: 2018-05-10 23:57+0800\n"
-"PO-Revision-Date: 2018-05-11 02:32+0800\n"
+"PO-Revision-Date: 2018-07-31 16:27+0800\n"
 "Last-Translator: shiante <shine.wangrs@gmail.com>\n"
 "Language-Team: \n"
 "Language: zh_CN\n"
@@ -52,11 +52,11 @@ msgstr "下一页"
 
 #: _partial/post/nav.ejs:6
 msgid "Prev post"
-msgstr "上一篇"
+msgstr "前一篇"
 
 #: _partial/post/nav.ejs:14
 msgid "Next post"
-msgstr "下一篇"
+msgstr "后一篇"
 
 #: _partial/post/toc.ejs:10
 msgid "toc"

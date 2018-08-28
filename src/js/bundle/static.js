@@ -1,4 +1,4 @@
-var loader = document.getElementById('static_loader');
+var loader = document.getElementById('static');
 if (window.location.hash.indexOf('_b_p_') == -1) {
     document.onreadystatechange = function () {
         if (document.readyState === "interactive") {
@@ -11,7 +11,7 @@ if (window.location.hash.indexOf('_b_p_') == -1) {
                             rep.src = node.getAttribute('source');
                             node.getAttribute('id') && (rep.id = node.getAttribute('id'));
                             rep.onload = function () {
-                                console.log('loaded ' + node.getAttribute('source'));
+                                // console.log('loaded ' + node.getAttribute('source'));
                                 resolve();
                             }
                             document.head.appendChild(rep);
@@ -36,3 +36,4 @@ if (window.location.hash.indexOf('_b_p_') == -1) {
     };
 }
 loader.parentNode.removeChild(loader);
+loader = null;

@@ -18,9 +18,11 @@ hexo.extend.helper.register('env', () => {
 
 hexo.extend.helper.register('theme_version', () => version);
 
+hexo.extend.helper.register('language', () => getText());
+
 const source = (path, ext) => {
     if (env === 'production') {
-        const file = `${path}.min${ext}`;
+        const file = path.substr(-4) === '.min' ? `${path}${ext}` : `${path}.min${ext}`;
         return hexo.theme.config.cdn ? `//unpkg.com/${name}@${version}/${file}` : `${file}`;
     } else {
         return path + ext;

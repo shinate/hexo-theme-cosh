@@ -1,7 +1,13 @@
+var connector = require('../../connector');
+
 module.exports = {
     command: 'clean',
     alias: ['clear'],
+    description: [
+        ['clean', 'clean', 'Clear screen.'],
+        ['', 'clear', 'Alias for "clean".'],
+    ],
     main: function () {
-        document.getElementById('wrap').innerHTML = '';
+        connector.dispatch('renderer-main-clean');
     }
 };

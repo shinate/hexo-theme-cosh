@@ -11,7 +11,8 @@ command.register('font-size', require('./cmd/font-size'));
 command.register('tag', require('./cmd/tag'));
 command.register('category', require('./cmd/category'));
 command.register('theme', require('./cmd/theme'));
+command.register('help', require('./cmd/help'));
 
-console.log(command);
+// console.log(command);
 
 module.exports = command;

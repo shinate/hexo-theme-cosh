@@ -2,6 +2,7 @@ var connector = require('../model/connector');
 require('../model/profile').autoload();
 require('../model/cli').listen(document.getElementById('cli'));
 require('../model/bp');
+require('../model/renderer');
 
 /**
  * 命令
@@ -15,7 +16,7 @@ connector.register('row-message', function rowMessage(message, type) {
     var type = type || 'info';
 
     var msgEl = $('<section class="command"><i class="command-row-message command-row-message-' + type + '">' + message + '</i></section>');
-    msgEl.appendTo($('#wrap'));
+    connector.dispatch('renderer-main', msgEl);
     connector.dispatch('scrollTo', ':bottom');
 });
 

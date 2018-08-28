@@ -32,6 +32,7 @@ CLI.prototype.listen = function (node) {
     this.prompt = node.getElementsByClassName('prompt')[0];
     this.inputing.addEventListener('keydown', this.input.bind(this), true);
     this.node.addEventListener('focus', this.inputFocus.bind(this), false);
+    window.addEventListener('keydown', this.inputFocusFromOutter.bind(this), true);
 };
 
 CLI.prototype.input = function (e) {
@@ -75,6 +76,13 @@ CLI.prototype.historyClear = function () {
     history.clear();
     this.history = [];
     this.historyChosed = null;
+};
+
+CLI.prototype.inputFocusFromOutter = function (e) {
+    if (e.key === 'Enter' && e.target != this.inputing) {
+        this.inputFocus();
+        e.preventDefault();
+    }
 };
 
 CLI.prototype.inputFocus = function () {

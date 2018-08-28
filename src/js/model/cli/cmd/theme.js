@@ -2,6 +2,18 @@ var connector = require('../../connector');
 var profile = require('../../profile');
 module.exports = {
     command: 'theme',
+    description: [
+        [
+            'theme',
+            'theme {theme_name}',
+            'Change theme to {theme_name}'
+        ],
+        [
+            '',
+            'theme reset',
+            'Change theme to default'
+        ]
+    ],
     main: function (parsedCommand) {
         if (parsedCommand._.hasOwnProperty(1)) {
             var p = parsedCommand._[1];

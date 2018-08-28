@@ -43,9 +43,9 @@ email: shine.wangrs@gmail.com
 color: '#3F51B5'
 
 format:
-  date: YYYY-MM-DD
+  date: YYYY.MM.DD
   time: HH:mm:ss
-  datetime: YYYY-MM-DD HH:mm:ss
+  datetime: YYYY.MM.DD HH:mm:ss
 
 # 页面标题
 tags_title: Tags

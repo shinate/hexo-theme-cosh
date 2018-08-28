@@ -4,6 +4,23 @@ var defaultSize;
 module.exports = {
     command: 'font-size',
     alias: ['fontSize'],
+    description: [
+        [
+            'font-size',
+            'font-size',
+            'Show current font size (px)'
+        ],
+        [
+            '',
+            'font-size {size}',
+            "Set the font size in different ways\nThe \"size\" can be: multiple, percentage (%), pixels (px)"
+        ],
+        [
+            '',
+            'fontSize',
+            'Alias for "font-size".'
+        ]
+    ],
     main: function (parsedCommand) {
         var currentSize = parseInt(document.body.computedStyleMap().get('font-size').toString());
         if (parsedCommand._.hasOwnProperty(1)) {

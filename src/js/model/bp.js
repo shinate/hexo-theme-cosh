@@ -75,16 +75,15 @@ function _load(url) {
                 positionToBottom = main.height() - win.scrollTop() - win.height();
                 var container = $(window.frames[name].document).find('#wrap > section.container');
                 if (container.length) {
-                    $('<section></section>')
+                    connector.dispatch('renderer-main', $('<section></section>')
                         .addClass('container')
                         .attr('id', name)
-                        .html(container.html())
-                        .appendTo($('#wrap'))
+                        .html(container.html()))
                         .find('pre code')
                         .each(function (_, node) {
                             window.hljs.highlightBlock(node)
                         });
-                    $('title').text($(window.frames[name].document).find('title').text());
+                    connector.dispatch('renderer-title', $(window.frames[name].document).find('title').text());
                     resolve(name);
                 } else {
                     reject();

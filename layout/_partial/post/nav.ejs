@@ -1,9 +1,9 @@
 <% if (post.prev || post.next) { %>
-<nav class="post-nav flex-row flex-justify-between<% if(!post.prev){ %> flex-row-reverse<% } %>">
+<nav class="post-nav">
     <% if (post.prev) { %>
     <div class="prev">
         <a href="<%- url_for(post.prev.path) %>" id="post-prev" class="post-nav-link">
-            <div class="tips"><%- __('Prev post') %></div>
+            <b class="tips"><%- __('Prev post') %></b>
             <h4 class="title"><%= post.prev.title || '[no title]' %></h4>
         </a>
     </div>
@@ -11,7 +11,7 @@
     <% if (post.next) { %>
     <div class="next">
         <a href="<%- url_for(post.next.path) %>" id="post-next" class="post-nav-link">
-            <div class="tips"><%- __('Next post') %></div>
+            <b class="tips"><%- __('Next post') %></b>
             <h4 class="title"><%= post.next.title || '[no title]' %></h4>
         </a>
     </div>

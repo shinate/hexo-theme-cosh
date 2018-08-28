@@ -15,6 +15,9 @@ connector.prototype.dispatch = function (name) {
         return this.watchList[name].apply(null, [].concat(Array.prototype.slice.call(arguments, 1)));
 };
 
+/**
+ * connector
+ */
 module.exports = (function (global) {
     if (!('__CONNECTOR' in global)) {
         global.__CONNECTOR = new connector();

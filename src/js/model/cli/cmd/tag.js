@@ -3,6 +3,23 @@ var test = /^@/;
 
 module.exports = {
     test: test,
+    description: [
+        [
+            'tag',
+            'tag',
+            'list all tags.'
+        ],
+        [
+            '',
+            'tag {tag_name}',
+            'list posts of given tag name.'
+        ],
+        [
+            '',
+            '@{tag_name}',
+            'Simplified for "tag".'
+        ]
+    ],
     command: 'tag',
     main: function (parsedCommand) {
         if (test.test(parsedCommand._[0])) {

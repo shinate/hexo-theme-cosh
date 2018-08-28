@@ -1,31 +1,11 @@
 <footer class="footer">
-    <div class="top">
+    <div>
         <%- partial('plugins/site-visit') %>
         <p>
             <% if ((config.feed) && (config.feed.path.length)) { %>
             <span><a href="<%- url_for(config.feed.path) %>" target="_blank" class="rss" title="rss"><i
                             class="icon icon-lg icon-rss"></i></a></span>
             <% } %>
-            <span><a target="_blank" rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img
-                            alt="<%- __('Creative Commons License') %>" style="border-width:0"
-                            src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png"/></a><br/><%- __('This work is licensed under a ') %>
-                <a target="_blank" rel="license"
-                   href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><%- __('Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License') %></a></span>
-        </p>
-    </div>
-    <div class="bottom">
-        <p><span><%- config.author %> &copy;
-                <% if (theme.since_year && theme.since_year < date(new Date(), 'YYYY')) { %>
-                <%- theme.since_year %> -
-                <% } %>
-                <%- date(new Date(), 'YYYY') %></span>
-            <span>
-                <% if(theme.ICP_license) { %>
-                <a href="http://www.miitbeian.gov.cn/" target="_blank"><%- theme.ICP_license %></a><br>
-                <% } %>
-                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a
-                        href="<%- config.root %>" target="_blank">cosh</a>
-            </span>
         </p>
     </div>
 </footer>
