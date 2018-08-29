@@ -14,7 +14,7 @@ function space2nbsp(content, opts) {
 
 module.exports = {
     command: 'help',
-    description: 'Get help about this blog, list of commands.',
+    description: __('Get help about this blog, list of commands.'),
     main: function () {
 
         var contents = [];
@@ -55,9 +55,9 @@ module.exports = {
             var style = 'style="padding:1px 3em 2px 0;word-break:keep-all;white-space:nowrap;"';
             var res = '<table>' +
                 '<thead><tr><th align="left"' + style + '>' + [
-                    'NAME',
-                    'COMMAND-LINE',
-                    'DESCRIPTION'
+                    __('NAME'),
+                    __('COMMAND-LINE'),
+                    __('DESCRIPTION')
                 ].join('</th><th align="left"' + style + '>') + '</th></tr></thead>' +
                 '<tbody><tr>' + contents.map(function (row) {
                     return '<td valign="top"' + style + '>' + row.map(function (content, k) {

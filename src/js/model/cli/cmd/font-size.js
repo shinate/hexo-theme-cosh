@@ -8,17 +8,17 @@ module.exports = {
         [
             'font-size',
             'font-size',
-            'Show current font size (px)'
+            __('Show current font size (px)')
         ],
         [
             '',
             'font-size {size}',
-            "Set the font size in different ways\nThe \"size\" can be: multiple, percentage (%), pixels (px)"
+            __("Set the font size in different ways\nThe \"size\" can be: multiple, percentage (%), pixels (px)")
         ],
         [
             '',
             'fontSize',
-            'Alias for "font-size".'
+            __('Alias for "font-size".')
         ]
     ],
     main: function (parsedCommand) {

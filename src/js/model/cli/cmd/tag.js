@@ -7,17 +7,17 @@ module.exports = {
         [
             'tag',
             'tag',
-            'list all tags.'
+            __('list all tags.')
         ],
         [
             '',
             'tag {tag_name}',
-            'list posts of given tag name.'
+            __('list posts of given tag name.')
         ],
         [
             '',
             '@{tag_name}',
-            'Simplified for "tag".'
+            __('Simplified for "tag".')
         ]
     ],
     command: 'tag',

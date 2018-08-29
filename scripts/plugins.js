@@ -18,7 +18,11 @@ hexo.extend.helper.register('env', () => {
 
 hexo.extend.helper.register('theme_version', () => version);
 
-hexo.extend.helper.register('language', () => getText());
+hexo.extend.helper.register('lang', () => getText());
+
+hexo.extend.helper.register('configuration', content => {
+    return JSON.stringify(content || {});
+});
 
 const source = (path, ext) => {
     if (env === 'production') {

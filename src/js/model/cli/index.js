@@ -12,6 +12,7 @@ command.register('tag', require('./cmd/tag'));
 command.register('category', require('./cmd/category'));
 command.register('theme', require('./cmd/theme'));
 command.register('help', require('./cmd/help'));
+command.register('search', require('./cmd/search'));
 
 // console.log(command);
 

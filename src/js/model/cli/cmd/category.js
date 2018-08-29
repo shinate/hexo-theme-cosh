@@ -7,17 +7,17 @@ module.exports = {
         [
             'category',
             'category',
-            'list all categories.'
+            __('list all categories.')
         ],
         [
             '',
             'category {category_name}',
-            'list posts of given category name.'
+            __('list posts of given category name.')
         ],
         [
             '',
             '&{category_name}',
-            'Simplified for "category".'
+            __('Simplified for "category".')
         ]
     ],
     command: 'category',

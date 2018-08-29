@@ -47,6 +47,7 @@
     "webpack": "^4.6.0",
     "webpack-stream": "^4.0.3",
     "yargs-parser": "^10.0.0",
-    "zepto": "^1.2.0"
+    "zepto": "^1.2.0",
+    "glob": "^7.1.3"
   }
 }

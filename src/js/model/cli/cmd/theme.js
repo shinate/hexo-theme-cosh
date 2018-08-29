@@ -6,12 +6,12 @@ module.exports = {
         [
             'theme',
             'theme {theme_name}',
-            'Change theme to {theme_name}'
+            __('Change theme to {theme_name}')
         ],
         [
             '',
             'theme reset',
-            'Change theme to default'
+            __('Change theme to default')
         ]
     ],
     main: function (parsedCommand) {

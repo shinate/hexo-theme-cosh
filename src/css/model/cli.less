@@ -29,5 +29,27 @@
     &.command-row-message-ansi {
       font-family: @font-code;
     }
+
+    &.command-row-message-search {
+      display: block;
+
+      > .search-result-title-range {
+        b {
+          font-weight: bold;
+          padding: 0 .2em;
+        }
+      }
+
+      > .search-result-content-range {
+        font-size: .8em;
+        margin-bottom: .3em;
+        padding: .2em .3em;
+
+        b {
+          font-weight: bold;
+          padding: 0 .2em;
+        }
+      }
+    }
   }
 }

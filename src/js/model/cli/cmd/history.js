@@ -4,9 +4,21 @@ var cli = require('../../cli');
 module.exports = {
     command: 'history',
     description: [
-        ['history', 'history [list]', 'List all histories'],
-        ['', 'history clean', 'Clear all histories.'],
-        ['', 'history clear', 'Alias for "history clean".'],
+        [
+            'history',
+            'history [list]',
+            __('List all histories')
+        ],
+        [
+            '',
+            'history clean',
+            __('Clear all histories.')
+        ],
+        [
+            '',
+            'history clear',
+            __('Alias for "history clean".')
+        ],
     ],
     main: function (parsedCommand) {
         // if (parsedCommand._.hasOwnProperty(1))

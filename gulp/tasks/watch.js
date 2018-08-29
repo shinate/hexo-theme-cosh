@@ -5,12 +5,24 @@ var ws = require('webpack-stream');
 var path = require('path');
 var colors = require('colors');
 var util = require('util');
+var fs = require('fs');
+var {mo} = require('gettext-parser');
+var execa = require('execa');
 
 module.exports = function (gulp, PLUGIN, CONF) {
 
-    gulp.task('watch', ['build', 'js:watch', 'css:watch']);
+    gulp.task('watch', ['build', 'language:watch', 'js:watch', 'css:watch']);
 
-    gulp.task('js:watch', ['build'], PLUGIN.intelliWatch([
+    gulp.task('language:watch', PLUGIN.intelliWatch([
+        './lang/*.mo'
+    ], function (src) {
+        return new Promise(function (resolve, reject) {
+            console.log(execa.shellSync('./language.js').stdout);
+            resolve();
+        })
+    }));
+
+    gulp.task('js:watch', ['build', 'language:watch'], PLUGIN.intelliWatch([
         CONF.src + '/js/bundle/**/*.js',
         '!' + CONF.src + '/js/bundle/**/*.min.js'
     ], function (src) {

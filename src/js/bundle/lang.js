@@ -1,0 +1,16 @@
+(function () {
+
+    var $LANG = {"cn":{"Alias for \"clean\".":"“clean” 的另一种形式","Alias for \"history clean\".":"\"history clean\" 的另一种形式","Blog HOME Page":"博客首页","COMMAND-LINE":"命令格式","Categories":"分类","Clear all histories.":"清除所有历史","Clear screen.":"清空","Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License":"知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议","Creative Commons License":"知识共享许可协议","DESCRIPTION":"说明","Last updated at":"最后更新于","List all histories":"列举所有历史","NAME":"名称","Next page":"下一页","Next post":"后一篇","Prev page":"上一页","Prev post":"前一篇","Read a list of pages.":"读取某一页","Read more":"阅读全文","Search with the given in the title and content from the article.":"在文章的标题和内容中搜索","Simplified for \"category\".":"“category” 命令的简写","Simplified for \"search\".":" \"search” 的简写","Tags":"标签","This work is licensed under a ":"本作品许可采用自 ","list all categories.":"列举全部分类","list all tags.":"列举所有标签","list posts of given category name.":"根据分类名称列出所有文章","toc":"目录"}};
+
+    var userLang = $CONFIG.language || navigator.language || navigator.userLanguage || 'en';
+
+    function getText(content) {
+        if ($LANG != null && $LANG.hasOwnProperty(userLang) && $LANG[userLang].hasOwnProperty(content)) {
+            return $LANG[userLang][content];
+        }
+
+        return content;
+    }
+
+    window.__ = getText;
+})();

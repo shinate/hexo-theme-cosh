@@ -1,3 +1,7 @@
+!('__' in window) && (window.__ = function (c) {
+    return c;
+});
+
 var connector = require('../model/connector');
 require('../model/profile').autoload();
 require('../model/cli').listen(document.getElementById('cli'));

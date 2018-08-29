@@ -55,7 +55,7 @@ CLI.prototype.input = function (e) {
                 if (this.historyChosed <= 0) {
                     this.historyChosed = this.history.length;
                 }
-                this.inputing.innerText = this.history[--this.historyChosed];
+                this.setInputContent(this.history[--this.historyChosed]);
             }
             break;
         case 'ArrowDown':
@@ -66,7 +66,7 @@ CLI.prototype.input = function (e) {
                 if (this.historyChosed >= this.history.length - 1) {
                     this.historyChosed = -1;
                 }
-                this.inputing.innerText = this.history[++this.historyChosed];
+                this.setInputContent(this.history[++this.historyChosed]);
             }
             break;
     }
@@ -87,6 +87,10 @@ CLI.prototype.inputFocusFromOutter = function (e) {
 
 CLI.prototype.inputFocus = function () {
     this.inputing.focus();
+};
+
+CLI.prototype.setInputContent = function (content) {
+    this.inputing.innerText = content || '';
 };
 
 CLI.prototype.getInputContent = function () {
