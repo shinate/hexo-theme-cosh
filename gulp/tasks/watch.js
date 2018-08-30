@@ -11,7 +11,20 @@ var execa = require('execa');
 
 module.exports = function (gulp, PLUGIN, CONF) {
 
-    gulp.task('watch', ['build', 'language:watch', 'js:watch', 'css:watch']);
+    gulp.task('watch', ['build', 'layout:watch', 'language:watch', 'js:watch', 'css:watch']);
+
+    gulp.task('layout:watch', PLUGIN.intelliWatch([
+        CONF.root + '/layout/**/*.ejs'
+    ], function (src) {
+        return gulp.src(src)
+            .pipe(named(function (file) {
+                file.base = CONF.root + '/layout';
+                var filepath = path.relative(file.base, file.path);
+                console.log(filepath.cyan);
+                this.queue(file);
+            }))
+            .pipe(gulp.dest(CONF.root + '/.dev/layout'));
+    }));
 
     gulp.task('language:watch', PLUGIN.intelliWatch([
         './lang/*.mo'
@@ -47,7 +60,7 @@ module.exports = function (gulp, PLUGIN, CONF) {
             .pipe(named(function (file) {
                 file.base = CONF.src + '/css/bundle/';
                 var filepath = path.relative(file.base, file.path);
-                console.log('[' + colors.grey((new Date).toTimeString()) + ']', 'LESS Bundle');
+                console.log('[' + (new Date).toTimeString() + ']', 'LESS Bundle');
                 console.log([
                     (new Array(filepath.length - 4)).join(' ') + colors.bold('Asset'),
                     colors.bold('Size')

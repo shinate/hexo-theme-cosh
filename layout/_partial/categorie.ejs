@@ -1,0 +1,17 @@
+<% if(is_category()) { %>
+<h1 class="page-title"><%= __('Categories') + ': ' + page.tag %></h1>
+<% page.posts.each(function(post){ %>
+<%- partial('archive', {post: post}) %>
+<% }) %>
+<% } else { %>
+<h1 class="page-title"><%= __('Categories') %></h1>
+<% site.categories.each(function(cate){ %>
+<% if(cate.length){ %>
+<h3 class="archive-separator" id="categorie-<%= cate.name %>"><%= cate.name %></h3>
+<% cate.posts.each(function(post){ %>
+<%- partial('archive', {post: post}) %>
+<% }) %>
+<% } %>
+<% }) %>
+<% } %>
+<%- partial('paginator') %>
