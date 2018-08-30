@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2018-05-10 23:57+0800\n"
-"PO-Revision-Date: 2018-08-30 17:47+0800\n"
+"POT-Creation-Date: 2018-08-30 17:51+0800\n"
+"PO-Revision-Date: 2018-08-30 17:51+0800\n"
 "Last-Translator: shiante <shine.wangrs@gmail.com>\n"
 "Language-Team: \n"
 "Language: zh_CN\n"
@@ -17,53 +17,153 @@ msgstr ""
 "X-Poedit-SearchPath-0: layout\n"
 "X-Poedit-SearchPath-1: src/js\n"
 
-#: _partial/article.ejs:19
+#: src/js/model/cli/cmd/category.js:10
+msgid "list all categories."
+msgstr "列举全部分类"
+
+#: src/js/model/cli/cmd/category.js:15
+msgid "list posts of given category name."
+msgstr "根据分类名称列出所有文章"
+
+#: src/js/model/cli/cmd/category.js:20
+msgid "Simplified for \"category\"."
+msgstr "“category” 命令的简写"
+
+#: src/js/model/cli/cmd/clean.js:7
+msgid "Clear screen."
+msgstr "清除屏幕。"
+
+#: src/js/model/cli/cmd/clean.js:8
+msgid "Alias for \"clean\"."
+msgstr "“clean” 的另一种形式"
+
+#: src/js/model/cli/cmd/font-size.js:11
+msgid "Show current font size (px)"
+msgstr "显示当前字体大小 (px)"
+
+#: src/js/model/cli/cmd/font-size.js:16
+msgid ""
+"Set the font size in different ways\n"
+"The \"size\" can be: multiple, percentage (%), pixels (px)"
+msgstr "以不同的方式设置字体大小 “大小” 可以是: 倍数, 百分比 (%), 像素 (px)"
+
+#: src/js/model/cli/cmd/font-size.js:21
+msgid "Alias for \"font-size\"."
+msgstr "“字体大小” 的别名。"
+
+#: src/js/model/cli/cmd/help.js:17
+msgid "Get help about this blog, list of commands."
+msgstr "获取有关此博客的帮助, 命令列表。"
+
+#: src/js/model/cli/cmd/help.js:58
+msgid "NAME"
+msgstr "名称"
+
+#: src/js/model/cli/cmd/help.js:59
+msgid "COMMAND-LINE"
+msgstr "命令格式"
+
+#: src/js/model/cli/cmd/help.js:60
+msgid "DESCRIPTION"
+msgstr "说明"
+
+#: src/js/model/cli/cmd/history.js:10
+msgid "List all histories"
+msgstr "列举所有历史"
+
+#: src/js/model/cli/cmd/history.js:15
+msgid "Clear all histories."
+msgstr "清除所有历史"
+
+#: src/js/model/cli/cmd/history.js:20
+msgid "Alias for \"history clean\"."
+msgstr "“history clean” 的另一种形式"
+
+#: src/js/model/cli/cmd/home.js:5
+msgid "Blog HOME Page"
+msgstr "博客首页"
+
+#: src/js/model/cli/cmd/page.js:9
+msgid "Read a list of pages."
+msgstr "读取某一分页"
+
+#: src/js/model/cli/cmd/search.js:61
+msgid "Search with the given in the title and content from the article."
+msgstr "在文章的标题和内容中搜索"
+
+#: src/js/model/cli/cmd/search.js:66
+msgid "Simplified for \"search\"."
+msgstr " “search” 的简写"
+
+#: src/js/model/cli/cmd/tag.js:10
+msgid "list all tags."
+msgstr "列举所有标签"
+
+#: src/js/model/cli/cmd/tag.js:15
+msgid "list posts of given tag name."
+msgstr "根据分类名称列出所有文章"
+
+#: src/js/model/cli/cmd/tag.js:20
+msgid "Simplified for \"tag\"."
+msgstr " “tag” 的简写"
+
+#: src/js/model/cli/cmd/theme.js:9
+msgid "Change theme to {theme_name}"
+msgstr "将主题替换为 {主题名称}"
+
+#: src/js/model/cli/cmd/theme.js:14
+msgid "Change theme to default"
+msgstr "恢复默认主题"
+
+#: layout/_partial/article.ejs:19
 msgid "Read more"
 msgstr "阅读全文"
 
-#: _partial/common/head.ejs:18
+#: layout/_partial/categorie.ejs:2 layout/_partial/categorie.ejs:7
+#: layout/_partial/common/head.ejs:18
 msgid "Categories"
 msgstr "分类"
 
-#: _partial/common/head.ejs:20 tag.ejs:2
+#: layout/_partial/common/head.ejs:20 layout/_partial/tag.ejs:2
+#: layout/_partial/tag.ejs:7
 msgid "Tags"
 msgstr "标签"
 
-#: _partial/footer.ejs:10
+#: layout/_partial/model/site-info.ejs:4
 msgid "Creative Commons License"
 msgstr "知识共享许可协议"
 
-#: _partial/footer.ejs:11
+#: layout/_partial/model/site-info.ejs:5
 msgid "This work is licensed under a "
 msgstr "本作品许可采用自 "
 
-#: _partial/footer.ejs:13
+#: layout/_partial/model/site-info.ejs:7
 msgid ""
 "Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International "
 "License"
 msgstr "知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议"
 
-#: _partial/paginator.ejs:4
+#: layout/_partial/paginator.ejs:4
 msgid "Prev page"
 msgstr "上一页"
 
-#: _partial/paginator.ejs:5
+#: layout/_partial/paginator.ejs:5
 msgid "Next page"
 msgstr "下一页"
 
-#: _partial/post/nav.ejs:6
+#: layout/_partial/post/nav.ejs:6
 msgid "Prev post"
 msgstr "前一篇"
 
-#: _partial/post/nav.ejs:14
+#: layout/_partial/post/nav.ejs:14
 msgid "Next post"
 msgstr "后一篇"
 
-#: _partial/post/toc.ejs:10
+#: layout/_partial/post/toc.ejs:10
 msgid "toc"
 msgstr "目录"
 
-#: _partial/post/updated.ejs:3
+#: layout/_partial/post/updated.ejs:3
 msgid "Last updated at"
 msgstr "最后更新于"
 
