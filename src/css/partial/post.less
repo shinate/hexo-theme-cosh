@@ -5,7 +5,14 @@
 
 .post-title {
   border: 3px double;
-  padding: .5em;
+  padding: .3em .5em;
+}
+
+.post-meta {
+  margin: .5em 0;
+  & > div {
+    display: inline-block;
+  }
 }
 
 .post-content {
@@ -16,10 +23,20 @@
   p {
     letter-spacing: .05em;
   }
+
+  table {
+    border-collapse: collapse;
+
+    th, td {
+      border: 1px solid;
+      padding: .2em .5em;
+    }
+  }
 }
 
 .post-copyright {
   margin-bottom: 1em;
+
   footer {
     a > img {
       width: 48px;

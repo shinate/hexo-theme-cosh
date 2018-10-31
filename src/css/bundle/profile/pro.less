@@ -59,6 +59,8 @@ a, .link {
 
 .page-title,
 .post-title {
+  font-weight: bold;
+  font-size: 2em;
   background-color: @profile-color-6-bright;
   color: @profile-color-0-normal;
 }
@@ -69,9 +71,35 @@ a, .link {
     color: @profile-color-5-bright;
   }
 
+  h1 {
+    font-size: 2em;
+    color: @profile-color-5-normal;
+  }
+
+  h2 {
+    font-size: 1.8em;
+    color: @profile-color-2-normal;
+  }
+
+  h3 {
+    font-size: 1.4em;
+    color: @profile-color-6-bright;
+  }
+
+  h4 {
+    font-size: 1.2em;
+    color: @profile-color-3-bright;
+  }
+
   p {
     strong {
       color: @profile-color-3-normal;
+    }
+  }
+
+  table {
+    th, td {
+      border-color: @profile-color-text-bold;
     }
   }
 }
