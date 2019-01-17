@@ -1,10 +1,10 @@
 <% if (post.categories && post.categories.length){ %>
 <div class="post-category-list flex-column">
-    <%- list_categories(post.categories, {
+    <a class="post-category-link" href="<%= config.root %>">首页</a>&gt;<%- list_categories(post.categories, {
         show_count: false,
-        class: 'post-category',
-        style: 'none',
-        separator: '>'
+        class     : 'post-category',
+        style     : 'none',
+        separator : '&gt;'
     }) %>
 </div>
 <% } %>

@@ -2,8 +2,10 @@
  * Created by shinate on 2018/4/26.
  */
 
-var connector = require('./connector');
+require('../lib/iframe-ready')
 
+var md5 = require('md5');
+var connector = require('./connector');
 var ua = window.navigator.userAgent.toLowerCase();
 var positionToBottom;
 
@@ -13,10 +15,18 @@ if (!/msie/.test(ua) && !(/gecko/.test(ua) && !/(compatible|webkit)/.test(ua)) &
     $(window).on('popstate', popHandle);
 }
 
+var main = $('#main');
+var win = $(window);
+
 function linkHandle(e) {
     var url = $(this).attr('href');
     $(this).blur();
-    if (url.indexOf('/') === 0) {
+
+    var name = '#BP_' + md5(url);
+    if ($(name).length) {
+        e.preventDefault();
+        document.location.href = name;
+    } else if (url.indexOf('/') === 0) {
         e.preventDefault();
         load(url);
         return false;
@@ -50,7 +60,8 @@ function load(url) {
                 connector.dispatch('scrollTo', $('#' + id));
             }
         })
-        .catch(function () {
+        .catch(function (e) {
+            console.log(e)
             connector.dispatch('row-message', '[FAIL] BP:Page can not be found!', 'error');
         })
 }
@@ -64,14 +75,13 @@ function load(url) {
  */
 function _load(url) {
     var frameLoader = $('<iframe style="display: none;"></iframe>');
-    var name = 'BP_' + (+new Date);
+    // var name = 'BP_' + (+new Date);
+    var name = 'BP_' + md5(url);
 
     return new Promise(function (resolve, reject) {
-        frameLoader.on('load', function () {
+        frameLoader.frameReady(function () {
             var el = $(this);
             if (window._b_p_active_name === name) {
-                var main = $('#main');
-                var win = $(window);
                 positionToBottom = main.height() - win.scrollTop() - win.height();
                 var container = $(window.frames[name].document).find('#wrap > section.container');
                 if (container.length) {
@@ -91,6 +101,7 @@ function _load(url) {
             }
             el.off('load', arguments.callee);
             el.remove();
+            el = null;
         });
 
         frameLoader.attr('src', url + '#_b_p_');

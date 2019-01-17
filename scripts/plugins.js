@@ -1,9 +1,30 @@
-let {version, name} = require('../package.json');
-let {env} = require('../../../package.json');
+let {version, name} = require('../package.json'); // theme
+let {env} = require('../../../package.json'); // global
 let yargs = require('yargs').argv;
 let {mo} = require('gettext-parser');
 let fs = require('fs');
 let {sprintf, vsprintf} = require('sprintf-js');
+let {pick} = require('lodash');
+
+let _VERSION
+
+function staticVersion() {
+    if (_VERSION == null) {
+        let file = `${hexo.theme_dir}/.version`;
+        if (fs.existsSync(file)) {
+            let content = fs.readFileSync(file).toString();
+            if (content) {
+                _VERSION = content;
+                return _VERSION;
+            }
+        }
+
+        _VERSION = +new Date;
+    }
+
+    return _VERSION;
+}
+
 
 hexo.extend.helper.register('sprintf', sprintf);
 hexo.extend.helper.register('vsprintf', vsprintf);
@@ -24,12 +45,19 @@ hexo.extend.helper.register('configuration', content => {
     return JSON.stringify(content || {});
 });
 
+hexo.extend.helper.register('$CONFIG', () => {
+    let _config = pick(hexo.config, ['language', 'category_dir', 'tag_dir', 'root']);
+    _config.env = env;
+    return _config;
+});
+
 const source = (path, ext) => {
     if (env === 'production') {
-        const file = path.substr(-4) === '.min' ? `${path}${ext}` : `${path}.min${ext}`;
+        let file = path.substr(-4) === '.min' ? `${path}${ext}` : `${path}.min${ext}`;
+        file = `${file}?_v=${staticVersion()}`
         return hexo.theme.config.cdn ? `//unpkg.com/${name}@${version}/${file}` : `${file}`;
     } else {
-        return path + ext;
+        return `${path}${ext}?_v=${staticVersion()}`;
     }
 };
 
@@ -56,6 +84,7 @@ hexo.extend.helper.register('__', (source) => {
 
 hexo.extend.helper.register('theme_load_js', (path) => source(path, '.js'));
 hexo.extend.helper.register('theme_load_css', (path) => source(path, '.css'));
+
 
 hexo.extend.helper.register('cli', () => {
     return `<div id="cli"><i class="prompt">cosh-${version}&#36;&nbsp;</i><i class="inputing" contenteditable="true"></i></div>`;

@@ -51,5 +51,49 @@
         }
       }
     }
+
+    &.command-row-message-ls {
+      .ls {
+        .flex-row;
+        .flex-row-wrap;
+
+        > * {
+          .flex-col;
+          box-sizing: border-box;
+          padding-right: 1rem;
+          max-width: 33.33%;
+          width: 33.33%;
+          min-width: 33.33%;
+          white-space: nowrap;
+
+          > a {
+            text-overflow: ellipsis;
+            overflow: hidden;
+            width: 100%;
+            display: inline-block;
+          }
+        }
+      }
+
+      .ls-l {
+        table {
+          th, td {
+            vertical-align: top;
+            border-color: @profile-color-text-bold;
+            text-align: right;
+
+            &.sep-line {
+              width: 1rem;
+              max-width: 1rem;
+              min-width: 1rem;
+            }
+
+            &:last-child {
+              text-align: left;
+            }
+          }
+        }
+      }
+    }
   }
 }

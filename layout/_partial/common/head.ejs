@@ -35,8 +35,7 @@
     <title><%= title %></title>
     <link type="text/css" rel="stylesheet" source="<%- theme_load_css(config.root + 'css/style') %>" media="all">
     <script>
-        $CONFIG = <%- JSON.stringify(config) %>;
-        $CONFIG.env = '<%- env() %>';
+        $CONFIG = <%- JSON.stringify($CONFIG()) %>;
     </script>
 </head>
 <body>

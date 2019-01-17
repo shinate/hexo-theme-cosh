@@ -1,23 +1,13 @@
 var connector = require('../../connector');
+var postdb = require('../../postdb');
 var test = /^>/;
 var range = 10;
-
-var SEARCH_INDEX = null;
-
-function loadSearchIndex(cb) {
-    $.getJSON($CONFIG.root + 'search-index.json', function (data) {
-        if ($.isPlainObject(data)) {
-            SEARCH_INDEX = data;
-            cb();
-        }
-    });
-}
 
 function search(word) {
     var results = [];
     var needle = new RegExp('(' + word + ')', 'gi');
 
-    SEARCH_INDEX.Post.forEach(function (item) {
+    postdb.DATA.Post.forEach(function (item) {
         var match;
         var matchedContent = [];
         var matchedTitle = needle.exec(item.title);
@@ -78,10 +68,10 @@ module.exports = {
             return;
         }
 
-        if (SEARCH_INDEX) {
+        if (postdb.inited()) {
             search(needle);
         } else {
-            loadSearchIndex(function () {
+            postdb.load(function () {
                 search(needle);
             });
         }
