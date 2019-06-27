@@ -16,6 +16,4 @@ command.register('search', require('./cmd/search'));
 command.register('ls', require('./cmd/ls'));
 command.register('ll', require('./cmd/ll'));
 
-// console.log(command);
-
 module.exports = command;

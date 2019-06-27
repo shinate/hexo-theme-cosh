@@ -3,21 +3,36 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <% if(theme.color){ %>
+    <meta name="theme-color" content="<%=theme.color%>">
+    <% } %>
+    <%
+    var keyWords = config.keywords;
+    if(page.tags){
+        keyWords = [];
+
+        _.isArray(page.tags) ? ( keyWords = page.tags )
+                : page.tags.each(function(k){
+            keyWords.push(k.name);
+        });
+    }
+    %>
+    <meta name="keywords" content="<%= keyWords %>">
     <%
     var title = page.title;
 
     if (is_archive()) {
-        title = theme.archives_title || 'Archives';
+        title = theme.archives_title || __('Archives');
         if (is_month()) {
             title += ': ' + page.year + '/' + page.month;
         } else if (is_year()) {
             title += ': ' + page.year;
         }
     } else if (is_category()) {
-        title = __('Categories') + ': ' + page.category;
+        title = (theme.categories_title || __('Categories')) + ': ' + page.category;
     } else if (is_tag()) {
-        title = __('Tags') + ': ' + page.tag;
+        title = (theme.tags_title || __('Tags')) + ': ' + page.tag;
     }
 
     if (title) {
@@ -34,8 +49,5 @@
     %>
     <title><%= title %></title>
     <link type="text/css" rel="stylesheet" source="<%- theme_load_css(config.root + 'css/style') %>" media="all">
-    <script>
-        $CONFIG = <%- JSON.stringify($CONFIG()) %>;
-    </script>
 </head>
 <body>

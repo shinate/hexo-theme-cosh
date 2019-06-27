@@ -4,9 +4,12 @@
 
 require('../lib/iframe-ready')
 
+var nodes = require('../model/gEl')
+var EXP = require('../model/exception')
 var md5 = require('md5');
 var connector = require('./connector');
 var ua = window.navigator.userAgent.toLowerCase();
+var scrollableTable = require('../model/scrollableTable');
 var positionToBottom;
 
 // !! SUPPORT BP !!
@@ -15,8 +18,8 @@ if (!/msie/.test(ua) && !(/gecko/.test(ua) && !/(compatible|webkit)/.test(ua)) &
     $(window).on('popstate', popHandle);
 }
 
-var main = $('#main');
-var win = $(window);
+var main = $(nodes.main);
+var win = $(nodes.window);
 
 function linkHandle(e) {
     var url = $(this).attr('href');
@@ -62,7 +65,7 @@ function load(url) {
         })
         .catch(function (e) {
             console.log(e)
-            connector.dispatch('row-message', '[FAIL] BP:Page can not be found!', 'error');
+            connector.dispatch('row-message', EXP.temp.fail(e), 'error');
         })
 }
 
@@ -83,25 +86,26 @@ function _load(url) {
             var el = $(this);
             if (window._b_p_active_name === name) {
                 positionToBottom = main.height() - win.scrollTop() - win.height();
-                var container = $(window.frames[name].document).find('#wrap > section.container');
+                var container = $(window.frames[name].document).find(nodes.container);
                 if (container.length) {
-                    connector.dispatch('renderer-main', $('<section></section>')
-                        .addClass('container')
-                        .attr('id', name)
-                        .html(container.html()))
-                        .find('pre code')
-                        .each(function (_, node) {
-                            window.hljs.highlightBlock(node)
-                        });
+                    var section = $('<section class="container" id="' + name + '"></section>')
+                    section.html(container.html())
+                    section.find('pre code').each(function (_, node) {
+                        window.hljs.highlightBlock(node)
+                    });
+                    section.find('table').each(function (_, node) {
+                        scrollableTable(node)
+                    })
+                    connector.dispatch('renderer-main', section);
                     connector.dispatch('renderer-title', $(window.frames[name].document).find('title').text());
                     resolve(name);
                 } else {
-                    reject();
+                    reject(__('Page can not be found!'));
                 }
             }
-            el.off('load', arguments.callee);
-            el.remove();
-            el = null;
+            frameLoader.off('load', arguments.callee);
+            frameLoader.remove();
+            frameLoader = null;
         });
 
         frameLoader.attr('src', url + '#_b_p_');

@@ -1,11 +1,11 @@
-<%- partial('_partial/common/head') %>
-<div id="main">
-    <div id="wrap">
-        <section class="container">
+<%- partial('partial/head') %>
+<div class="main" ref="main">
+    <div class="wrap" ref="wrap">
+        <section class="container" ref="container">
             <%- body %>
         </section>
     </div>
     <%- cli() %>
 </div>
-<%- partial('_partial/model/scripts') %>
-<%- partial('_partial/common/foot') %>
+<%- partial('partial/scripts') %>
+<%- partial('partial/foot') %>

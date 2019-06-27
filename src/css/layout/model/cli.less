@@ -1,12 +1,29 @@
+@import "../../assets/flex";
+
 #cli {
+  .flex-row;
+  align-items: center;
+
+  > * {
+    .flex-col;
+    display: flex;
+  }
+
   .prompt {
+    .flex-col-auto;
     word-break: keep-all;
     white-space: nowrap;
   }
+
   .inputing {
+    width: 100%;
     word-break: break-all;
     word-wrap: break-word;
     outline: none;
+    border: 0 none;
+    font-size: 15px;
+    background: none;
+    color: inherit;
   }
 }
 

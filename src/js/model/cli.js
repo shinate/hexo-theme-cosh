@@ -6,10 +6,10 @@ var argsParser = require('yargs-parser');
 var connector = require('./connector');
 
 var history = {
-    load: function () {
+    load : function () {
         return JSON.parse(window.localStorage.getItem('cosh_cli_history'));
     },
-    save: function (history) {
+    save : function (history) {
         window.localStorage.setItem('cosh_cli_history', JSON.stringify(history));
     },
     clear: function () {
@@ -36,7 +36,6 @@ CLI.prototype.listen = function (node) {
 };
 
 CLI.prototype.input = function (e) {
-    // console.log(e);
     switch (e.key) {
         case 'Enter':
             if (!e.shiftKey) {
@@ -70,6 +69,7 @@ CLI.prototype.input = function (e) {
             }
             break;
     }
+    console.log(this.getInputContent())
 };
 
 CLI.prototype.historyClear = function () {
@@ -90,15 +90,15 @@ CLI.prototype.inputFocus = function () {
 };
 
 CLI.prototype.setInputContent = function (content) {
-    this.inputing.innerText = content || '';
+    this.inputing.value = content || '';
 };
 
 CLI.prototype.getInputContent = function () {
-    return this.inputing.innerText;
+    return this.inputing.value;
 };
 
 CLI.prototype.clean = function () {
-    this.inputing.innerText = '';
+    this.inputing.value = '';
 };
 
 CLI.prototype.exec = function (content) {

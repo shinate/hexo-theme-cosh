@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2019-01-17 14:17+0800\n"
-"PO-Revision-Date: 2019-01-17 14:17+0800\n"
+"POT-Creation-Date: 2019-01-31 11:18+0800\n"
+"PO-Revision-Date: 2019-01-31 11:18+0800\n"
 "Last-Translator: shiante <shine.wangrs@gmail.com>\n"
 "Language-Team: \n"
 "Language: zh_CN\n"
@@ -16,6 +16,10 @@ msgstr ""
 "X-Poedit-KeywordsList: __\n"
 "X-Poedit-SearchPath-0: layout\n"
 "X-Poedit-SearchPath-1: src/js\n"
+
+#: src/js/model/bp.js:101
+msgid "Page can not be found!"
+msgstr "无法找到页面！"
 
 #: src/js/model/cli/cmd/category.js:10
 msgid "list all categories."
@@ -147,55 +151,75 @@ msgstr "将主题替换为 {主题名称}"
 msgid "Change theme to default"
 msgstr "恢复默认主题"
 
-#: layout/_partial/article.ejs:19
-msgid "Read more"
-msgstr "阅读全文"
+#: src/js/model/exception.js:4
+msgid "HALT"
+msgstr "终止"
 
-#: layout/_partial/categorie.ejs:2 layout/_partial/categorie.ejs:7
-#: layout/_partial/common/head.ejs:18
+#: src/js/model/exception.js:7
+msgid "FAIL"
+msgstr "错误"
+
+#: src/js/model/exception.js:10
+msgid "WARN"
+msgstr "警告"
+
+#: src/js/model/exception.js:13
+msgid "INFO"
+msgstr "信息"
+
+#: layout/head.ejs:26 layout/partial/head.ejs:26
+msgid "Archives"
+msgstr "归档"
+
+#: layout/head.ejs:33 layout/partial/categorie.ejs:2
+#: layout/partial/categorie.ejs:7 layout/partial/head.ejs:33
 msgid "Categories"
 msgstr "分类"
 
-#: layout/_partial/common/head.ejs:20 layout/_partial/tag.ejs:2
-#: layout/_partial/tag.ejs:7
+#: layout/head.ejs:35 layout/partial/head.ejs:35 layout/partial/tag.ejs:2
+#: layout/partial/tag.ejs:7
 msgid "Tags"
 msgstr "标签"
 
-#: layout/_partial/model/site-info.ejs:4
+#: layout/partial/article.ejs:19
+msgid "Read more"
+msgstr "阅读全文"
+
+#: layout/partial/model/site-info.ejs:4
 msgid "Creative Commons License"
 msgstr "知识共享许可协议"
 
-#: layout/_partial/model/site-info.ejs:5
+#: layout/partial/model/site-info.ejs:5
 msgid "This work is licensed under a "
 msgstr "本作品许可采用自 "
 
-#: layout/_partial/model/site-info.ejs:7
+#: layout/partial/model/site-info.ejs:7
 msgid ""
 "Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International "
 "License"
 msgstr "知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议"
 
-#: layout/_partial/paginator.ejs:4
+#: layout/partial/paginator.ejs:4
 msgid "Prev page"
 msgstr "上一页"
 
-#: layout/_partial/paginator.ejs:5
+#: layout/partial/paginator.ejs:5
 msgid "Next page"
 msgstr "下一页"
 
-#: layout/_partial/post/nav.ejs:6
+#: layout/partial/post/nav.ejs:6
 msgid "Prev post"
 msgstr "前一篇"
 
-#: layout/_partial/post/nav.ejs:14
+#: layout/partial/post/nav.ejs:14
 msgid "Next post"
 msgstr "后一篇"
 
-#: layout/_partial/post/toc.ejs:10
+#: layout/partial/post/toc.ejs:8
 msgid "toc"
 msgstr "导读"
 
-#: layout/_partial/post/updated.ejs:3
+#: layout/partial/post/updated.ejs:3
 msgid "Last updated at"
 msgstr "最后更新于"
 

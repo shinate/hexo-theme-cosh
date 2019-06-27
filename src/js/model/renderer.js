@@ -1,6 +1,6 @@
 var connector = require('./connector');
 
-var main = $('#wrap');
+var main = $('.wrap');
 var title = $('title');
 
 connector.register('renderer-main', function (element) {

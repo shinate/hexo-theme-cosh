@@ -4,7 +4,7 @@
 
 var connector = require('../model/connector');
 require('../model/profile').autoload();
-require('../model/cli').listen(document.getElementById('cli'));
+require('../model/cli').listen($('#cli').get(0));
 require('../model/bp');
 require('../model/renderer');
 
@@ -36,7 +36,7 @@ connector.register('scrollTo', function scrollTo(where) {
             pos = 0;
             break;
         case ':bottom':
-            pos = $('#main').height() - $(window).height();
+            pos = $('.main').height() - $(window).height();
             break;
         default:
             var target = $(where);

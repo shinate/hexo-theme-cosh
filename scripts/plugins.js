@@ -85,9 +85,8 @@ hexo.extend.helper.register('__', (source) => {
 hexo.extend.helper.register('theme_load_js', (path) => source(path, '.js'));
 hexo.extend.helper.register('theme_load_css', (path) => source(path, '.css'));
 
-
 hexo.extend.helper.register('cli', () => {
-    return `<div id="cli"><i class="prompt">cosh-${version}&#36;&nbsp;</i><i class="inputing" contenteditable="true"></i></div>`;
+    return `<div id="cli"><div class="prompt">cosh-${version}&#36;&nbsp;</div><div><input type="text" class="inputing"></div></div>`;
 });
 
 function renderImage(src, alt = '', title = '') {

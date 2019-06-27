@@ -1,0 +1,22 @@
+<article id="article-<%= post.slug %>" class="article-item article-type-<%= post.layout %> <%= post.layout %>">
+    <%- partial('article/title', {hasLink: true}) %>
+    <%- partial('article/date', {date_format: config.date_format}) %>
+    <%- partial('article/category') %>
+    <%- partial('article/tag') %>
+    <div class="article-content">
+        <%
+        var excerpt = '';
+        if (theme.excerpt_render) {
+            excerpt = post.excerpt || post.content;
+        } else {
+            excerpt = post.excerpt ? strip_html(post.excerpt) : truncate(strip_html(post.content), {
+                length: theme.excerpt_length
+            })
+        }
+        excerpt = excerpt.replace(/\s/g, '');
+        %>
+        <% if(excerpt) { %>
+        <%- excerpt %>
+        <% } %>
+    </div>
+</article>
