@@ -98,6 +98,9 @@
             vertical-align: top;
             border-color: @profile-color-text-bold;
             text-align: right;
+            white-space: nowrap;
+            word-wrap: normal;
+            word-break: keep-all;
 
             &.sep-line {
               width: 1rem;
@@ -105,8 +108,11 @@
               min-width: 1rem;
             }
 
-            &:last-child {
+            &:first-child {
+              max-width: 80vw;
               text-align: left;
+              text-overflow: ellipsis;
+              overflow: hidden;
             }
           }
         }

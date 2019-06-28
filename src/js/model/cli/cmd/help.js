@@ -6,16 +6,16 @@ var connector = require('../../connector');
 function space2nbsp(content, opts) {
     opts = Object.assign({
         space: 1,
-        tab: 3,
+        tab  : 3
     }, opts || {});
 
     return content.replace(/\x20/g, (new Array(opts.space + 1)).join('&nbsp;')).replace(/\t/g, (new Array(opts.tab + 1)).join('&nbsp;'))
 }
 
 module.exports = {
-    command: 'help',
+    command    : 'help',
     description: __('Get help about this blog, list of commands.'),
-    main: function () {
+    main       : function () {
 
         var contents = [];
         // var columnWidth = [0, 0, 0];
@@ -53,7 +53,8 @@ module.exports = {
 
         if (contents.length) {
             var style = 'style="padding:1px 3em 2px 0;word-break:keep-all;white-space:nowrap;"';
-            var res = '<table>' +
+            var res = '<div rel="x-scroll">' +
+                '<table>' +
                 '<thead><tr><th align="left"' + style + '>' + [
                     __('NAME'),
                     __('COMMAND-LINE'),
@@ -64,7 +65,8 @@ module.exports = {
                             return nl2br(space2nbsp(content));
                         }).join('</td><td valign="top"' + style + '>') + '</td>';
                 }).join('</tr><tr>') + '</tr></tbody>' +
-                '</table>';
+                '</table>' +
+                '</div>';
             connector.dispatch('row-message', res, 'ansi');
         }
     }

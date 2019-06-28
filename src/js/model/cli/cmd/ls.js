@@ -22,16 +22,17 @@ var list = {
 
         results.push('<div class="ls-l">');
         results.push('<div>' + __('total') + ' ' + postdb.DATA.Post.length + '</div>');
+        results.push('<div rel="x-scroll">');
         results.push('<table><tbody>');
 
         results.push('<tr>' +
+            '<th>' + __('title') + '</th>' +
+            '<th class="sep-line"></th>' +
             '<th>' + __('size') + '</th>' +
             '<th class="sep-line"></th>' +
             '<th colspan="3">' + __('created') + '</th>' +
             '<th class="sep-line"></th>' +
             '<th colspan="3">' + __('updated') + '</th>' +
-            '<th class="sep-line"></th>' +
-            '<th>' + __('title') + '</th>' +
             '</tr>');
 
         postdb.DATA.Post.forEach(function (item) {
@@ -49,16 +50,17 @@ var list = {
             }
 
             results.push('<tr>' +
+                '<td><a href="' + $CONFIG.root + 'post/' + item.slug + '" title="' + item.title + '">' + item.title + '</a></td>' +
+                '<td class="sep-line"></td>' +
                 '<td>' + item.size + '</td>' +
                 '<td class="sep-line"></td>' +
                 '<td>' + formatedDate.replace(/\x20/g, '</td><td>') + '</td>' +
                 '<td class="sep-line"></td>' +
                 '<td>' + formatedUpdated.replace(/\x20/g, '</td><td>') + '</td>' +
-                '<td class="sep-line"></td>' +
-                '<td><a href="' + $CONFIG.root + 'post/' + item.slug + '">' + item.title + '</a></td>' +
                 '</tr>');
         });
         results.push('</tbody></table>');
+        results.push('</div>');
         results.push('</div>');
 
         if (results.length) {

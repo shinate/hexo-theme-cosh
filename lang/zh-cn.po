@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2019-01-31 11:18+0800\n"
-"PO-Revision-Date: 2019-01-31 11:18+0800\n"
+"POT-Creation-Date: 2019-06-28 14:45+0800\n"
+"PO-Revision-Date: 2019-06-28 14:45+0800\n"
 "Last-Translator: shiante <shine.wangrs@gmail.com>\n"
 "Language-Team: \n"
 "Language: zh_CN\n"
@@ -17,7 +17,7 @@ msgstr ""
 "X-Poedit-SearchPath-0: layout\n"
 "X-Poedit-SearchPath-1: src/js\n"
 
-#: src/js/model/bp.js:101
+#: src/js/model/bp.js:103
 msgid "Page can not be found!"
 msgstr "无法找到页面！"
 
@@ -59,15 +59,15 @@ msgstr "“字体大小” 的别名。"
 msgid "Get help about this blog, list of commands."
 msgstr "获取有关此博客的帮助, 命令列表。"
 
-#: src/js/model/cli/cmd/help.js:58
+#: src/js/model/cli/cmd/help.js:59
 msgid "NAME"
 msgstr "名称"
 
-#: src/js/model/cli/cmd/help.js:59
+#: src/js/model/cli/cmd/help.js:60
 msgid "COMMAND-LINE"
 msgstr "命令格式"
 
-#: src/js/model/cli/cmd/help.js:60
+#: src/js/model/cli/cmd/help.js:61
 msgid "DESCRIPTION"
 msgstr "说明"
 
@@ -95,27 +95,27 @@ msgstr "“ls -l” 的简便调用"
 msgid "total"
 msgstr "总计"
 
-#: src/js/model/cli/cmd/ls.js:28
-msgid "size"
-msgstr "尺寸"
-
-#: src/js/model/cli/cmd/ls.js:30
-msgid "created"
-msgstr "创建于"
-
-#: src/js/model/cli/cmd/ls.js:32
-msgid "updated"
-msgstr "最后更新于"
-
-#: src/js/model/cli/cmd/ls.js:34
+#: src/js/model/cli/cmd/ls.js:29
 msgid "title"
 msgstr "标题"
 
-#: src/js/model/cli/cmd/ls.js:77
+#: src/js/model/cli/cmd/ls.js:31
+msgid "size"
+msgstr "尺寸"
+
+#: src/js/model/cli/cmd/ls.js:33
+msgid "created"
+msgstr "创建于"
+
+#: src/js/model/cli/cmd/ls.js:35
+msgid "updated"
+msgstr "最后更新于"
+
+#: src/js/model/cli/cmd/ls.js:79
 msgid "List all articles."
 msgstr "列举所有文章"
 
-#: src/js/model/cli/cmd/ls.js:82
+#: src/js/model/cli/cmd/ls.js:84
 msgid "List all articles with details."
 msgstr "列出所有文章，包括详细信息"
 
@@ -181,10 +181,6 @@ msgstr "分类"
 msgid "Tags"
 msgstr "标签"
 
-#: layout/partial/article.ejs:19
-msgid "Read more"
-msgstr "阅读全文"
-
 #: layout/partial/model/site-info.ejs:4
 msgid "Creative Commons License"
 msgstr "知识共享许可协议"
@@ -217,11 +213,15 @@ msgstr "后一篇"
 
 #: layout/partial/post/toc.ejs:8
 msgid "toc"
-msgstr "导读"
+msgstr "目录"
 
 #: layout/partial/post/updated.ejs:3
 msgid "Last updated at"
 msgstr "最后更新于"
+
+#: layout/partial/~article.ejs:19
+msgid "Read more"
+msgstr "阅读全文"
 
 #~ msgid "List all posts."
 #~ msgstr "列举所有文章"
