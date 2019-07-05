@@ -11,7 +11,7 @@ var execa = require('execa');
 
 module.exports = function (gulp, PLUGIN, CONF) {
 
-    gulp.task('watch', ['build', 'layout:watch', 'language:watch', 'js:watch', 'css:watch']);
+    gulp.task('watch', ['build', 'script:plugins:watch', 'layout:watch', 'language:watch', 'js:watch', 'css:watch']);
 
     gulp.task('layout:watch', PLUGIN.intelliWatch([
         CONF.root + '/layout/**/*.ejs'
@@ -24,6 +24,19 @@ module.exports = function (gulp, PLUGIN, CONF) {
                 this.queue(file);
             }))
             .pipe(gulp.dest(CONF.root + '/.dev/layout'));
+    }));
+
+    gulp.task('script:plugins:watch', PLUGIN.intelliWatch([
+        CONF.root + '/scripts/**/*.js'
+    ], function (src) {
+        return gulp.src(src)
+            .pipe(named(function (file) {
+                file.base = CONF.root + '/scripts';
+                var filepath = path.relative(file.base, file.path);
+                console.log(filepath.red);
+                this.queue(file);
+            }))
+            .pipe(gulp.dest(CONF.root + '/.dev/scripts'));
     }));
 
     gulp.task('language:watch', PLUGIN.intelliWatch([

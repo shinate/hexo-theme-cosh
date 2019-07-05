@@ -4,7 +4,8 @@ let yargs = require('yargs').argv;
 let {mo} = require('gettext-parser');
 let fs = require('fs');
 let {sprintf, vsprintf} = require('sprintf-js');
-let {pick} = require('lodash');
+let {pick, chunk, map} = require('lodash');
+var util = require('hexo-util');
 
 let _VERSION
 
@@ -123,3 +124,85 @@ hexo.extend.filter.register('before_post_render', data => {
     }
     return data
 });
+
+hexo.extend.helper.register('customToc', (content) => {
+    var header, regexp = new RegExp('<h(\\d)[^>]*>(.+?)<\/h\\1>', 'g');
+    var tree = [], minLevel = null, maxLevel = null
+    while ((header = regexp.exec(content)) != null) {
+        var _l = {level: parseInt(header[1]), title: util.stripHTML(header[2])}
+        if (minLevel === null) {
+            minLevel = _l.level
+        } else if (minLevel > _l.level) {
+            minLevel = _l.level
+        }
+        if (maxLevel === null) {
+            maxLevel = _l.level
+        } else if (maxLevel < _l.level) {
+            maxLevel = _l.level
+        }
+        tree.push(_l)
+    }
+
+    if (tree.length === 0) {
+        return '';
+    }
+
+    function customTocBasedLevel(base, level) {
+        return level - base;
+    }
+
+    // base降级
+    tree = map(tree, function (item) {
+        item.level = customTocBasedLevel(minLevel, item.level);
+        return item
+    })
+
+    // 合理排序
+    var lf = [];
+    tree = tree.map(function (item) {
+        var f = [].concat(lf).slice(0, item.level + 1);
+        f[item.level] = true;
+        // fc.push(f.filter(function (item) {
+        //         return item !== undefined
+        //     }).length - 1);
+        item.level = f.filter(function (item) {
+                return item !== undefined
+            }).length - 1;
+        lf = f;
+
+        return item;
+    })
+
+    tree = chunk(tree, tree.length > 16 ? Math.ceil(tree.length / 4) : 4);
+
+    var customTocLevels = [];
+
+    function customTocBasedIndex(level) {
+        if (customTocLevels[level] === undefined) {
+            customTocLevels[level] = 1;
+        } else {
+            customTocLevels[level]++;
+        }
+        customTocLevels = customTocLevels.slice(0, level + 1);
+        return customTocLevels
+        // .filter(function (item) {
+        //     return item !== undefined;
+        // })
+            .join('.');
+    }
+
+    function anchorId(str, transformOption) {
+        return util.slugize(str.trim(), {transform: transformOption});
+    }
+
+    tree = '<ol>' +
+        map(tree, function (column) {
+            return map(column, function (item) {
+                return `<li class="post-toc-level-${item.level}"><em>${customTocBasedIndex(item.level)}</em><a href="#${anchorId(item.title, '')}">${item.title}</a></li>`
+            }).join('')
+        }).join('</ol><ol>') + '</ol>';
+
+    var html = '<div class="post-toc-content">' + tree + '</ol></div>'
+
+    return html;
+})

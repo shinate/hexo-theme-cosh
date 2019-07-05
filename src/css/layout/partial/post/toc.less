@@ -1,19 +1,67 @@
-.post-toc-wrap {
-  float: right;
-  padding: .5em;
-  margin: .5em 0 .5em .5em;
+.post-toc {
+  //float: right;
+  margin: .5rem 0;
+  padding: .5rem 0;
+  overflow: hidden;
+  _zoom: 1;
+  display: flex;
 
-  .post-toc-item {
-    list-style: none;
+  .post-toc-header {
+    flex: 0 auto;
+    padding-right: 1rem;
   }
 
-  .post-toc {
-    padding-left: 0;
-    margin: 0;
-  }
+  .post-toc-content {
+    flex: 1;
+    display: flex;
+    flex-flow: row;
 
-  .post-toc-child {
-    padding-left: .8em;
-    margin: 0;
+    ol {
+      flex: 0 auto;
+      padding-left: 1rem;
+      list-style: none;
+      margin: 0;
+
+      em {
+        font-style: normal;
+        padding-right: .5rem;
+      }
+
+      a {
+        white-space: normal;
+        word-break: break-all;
+        word-wrap: break-word;
+      }
+
+      .post-toc-level {
+        &-0 {
+
+        }
+
+        &-1 {
+          padding-left: 1rem;
+        }
+
+        &-2 {
+          padding-left: 2rem;
+        }
+
+        &-3 {
+          padding-left: 3rem;
+        }
+
+        &-4 {
+          padding-left: 4rem;
+        }
+
+        &-5 {
+          padding-left: 5rem;
+        }
+
+        &-6 {
+          padding-left: 6rem;
+        }
+      }
+    }
   }
 }

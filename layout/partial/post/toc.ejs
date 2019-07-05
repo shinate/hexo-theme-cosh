@@ -1,11 +1,13 @@
 <% if(theme.toc){
-    var topic = toc(post.content, {
-        class      : 'post-toc',
-        list_number: theme.toc.list_number
-    })
-if(topic) { %><aside class="post-widget">
-    <nav class="post-toc-wrap">
-        <h4><%- __('toc') %></h4>
+//    var topic = toc(post.content, {
+//        class      : 'post-toc',
+//        list_number: theme.toc.list_number
+//    })
+    var topic = customToc(post.content)
+if(topic) { %>
+<aside class="post-widget">
+    <nav class="post-toc">
+        <h4 class="post-toc-header"><%- __('toc') %></h4>
         <%- topic %>
     </nav>
 </aside>
