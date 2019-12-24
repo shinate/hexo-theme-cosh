@@ -43,7 +43,7 @@ module.exports = function (gulp, PLUGIN, CONF) {
         './lang/*.mo'
     ], function (src) {
         return new Promise(function (resolve, reject) {
-            console.log(execa.shellSync('./language.js').stdout);
+            console.log(execa.shellSync('node language.js').stdout);
             resolve();
         })
     }));
