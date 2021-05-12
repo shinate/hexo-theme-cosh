@@ -45,7 +45,7 @@
     "randomatic": "^1.1.6",
     "require-dir": "^0.3.1",
     "through2": "^2.0.3",
-    "trim": "^0.0.1",
+    "trim": "^0.0.3",
     "uglifyjs-webpack-plugin": "^1.2.5",
     "vinyl-fs": "^2.4.4",
     "vinyl-named": "^1.1.0",
